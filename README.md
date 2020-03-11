@@ -1,4 +1,4 @@
-# SpringBoot - Tydzień 3
+# SpringBoot - Tydzień 4
 Rozbuduj swoją aplikacje z poprzedniego tygodnia o interfejs graficzny, który umożliwi:
 - wyświetlanie wszystkich pozycji
 - pobieranie elementu po jego id
