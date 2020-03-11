@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>CAR LIST: </p><br>
+    <div th:each="car: ${cars}">
+        <form style="display: flex;" th:action="@{/cars/{id}(id=${car.getId()})}" th:object="${car}" method="post">
+        <label style="min-width: 150px; margin-right: 5px;">
+            <span th:text="${car.getId()}"/>
+            <span th:text="${car.getMark()}"/>
+            <span th:text="${car.getModel()}"/>
+            <span th:text="${car.getColor()}"/>
+        </label>
+            <input type="submit" value="X">
+        </form>
+        <br/>
+    </div>
+
+    <p>--------------------------------------------------</p>
+    <p>ADD CAR:</p>
+    <form th:action="@{/cars/add-car}" th:object="${newCar}" method="post">
+        <p>Id: <input type="text" th:field="*{id}"></p>
+        <p>Mark: <input type="text" th:field="*{mark}"></p>
+        <p>Model: <input type="text" th:field="*{model}"></p>
+        <p>Color: <input type="text" th:field="*{color}"></p>
+        <p><input type="submit" value="Add"></p>
+    </form>
+
+    <p>--------------------------------------------------</p>
+    <p>GET CAR BY ID:</p>
+
+    <form th:action="@{/cars/get-car/{id}(id=${newCar.getId()})}" th:object="${newCar}" method="get">
+        <p>Id: <input type="text" th:field="*{id}"></p>
+        <p><input type="submit" value="Get car"></p>
+    </form>
+
+    <p>--------------------------------------------------</p>
+    <p>UPDATE CAR:</p>
+    <form th:action="@{/cars/modify}" th:object="${newCar}" method="post">
+        <p>Id: <input type="text" th:field="*{id}"></p>
+        <p>Mark: <input type="text" th:field="*{mark}"></p>
+        <p>Model: <input type="text" th:field="*{model}"></p>
+        <p>Color: <input type="text" th:field="*{color}"></p>
+        <p><input type="submit" value="Update"></p>
+    </form>
+</body>
+</html>
